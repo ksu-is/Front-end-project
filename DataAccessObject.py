@@ -1,6 +1,7 @@
 import constants as c
 import mysql.connector
 
+#Just a whole lot of funcitons
 
 def add_key_value_to_db(key_value: list):
     execute_query_insert_one_row(key_value)
