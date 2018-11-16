@@ -3,16 +3,17 @@ import mysql.connector
 
 #Just a whole lot of funcitons
 
+### function to add a value to the DB
 def add_key_value_to_db(key_value: list):
     execute_query_insert_one_row(key_value)
 
-
+### function to retrieve all data from the database
 def get_all_data_from_db():
     statement = "SELECT * FROM " + c.TBL_NAME
     result_list_of_strs = execute_query_return_list(statement)
     return result_list_of_strs
 
-
+### MYSQL connection command
 def execute_query(statement: str):
     cnx = mysql.connector.connect(user=c.USER_NAME, password=c.PASSWORD, host=c.HOST_IP, database=c.DB_NAME)
     cursor = cnx.cursor()
@@ -21,7 +22,7 @@ def execute_query(statement: str):
     cursor.close()
     cnx.close()
 
-
+### Inserting values into a specific row
 def get_insert_row_statement(table_name=c.TBL_NAME, col_labels=c.COL_LABELS):
     labels, values = '(', '('
     for label in col_labels:
@@ -31,7 +32,7 @@ def get_insert_row_statement(table_name=c.TBL_NAME, col_labels=c.COL_LABELS):
     values = values[:-1] + ")"
     return "INSERT INTO " + table_name + " " + labels + " VALUES " + values
 
-
+### 
 def execute_query_insert_one_row(row: list):
     insert_row_statement = get_insert_row_statement()
     cnx = mysql.connector.connect(user=c.USER_NAME, password=c.PASSWORD, host=c.HOST_IP, database=c.DB_NAME)
@@ -41,7 +42,7 @@ def execute_query_insert_one_row(row: list):
     cursor.close()
     cnx.close()
 
-
+### 
 def execute_query_return_list(statement: str):
     cnx = mysql.connector.connect(user=c.USER_NAME, password=c.PASSWORD, host=c.HOST_IP, database=c.DB_NAME)
     cursor = cnx.cursor()
@@ -51,3 +52,9 @@ def execute_query_return_list(statement: str):
     cursor.close()
     cnx.close()
     return results_list_of_tuples
+
+
+
+
+
+### reviewed by Andrew
