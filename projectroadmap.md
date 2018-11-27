@@ -14,7 +14,7 @@
 
 1. Edit constants.py to personal preferences - Andrew - DONE
 
-1. Create SQL database(from data management class) - Andrew -
+1. Create SQL database(from data management class) - Andrew - DONE
 
 1. Evaluate and review MyTestWeb.py for use in project - Billy - Done
 
